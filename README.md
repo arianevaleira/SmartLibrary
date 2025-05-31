@@ -31,11 +31,11 @@ Automatizar o controle de espaços físicos e recursos literários da biblioteca
 | Funcionalidade          | Descrição                                  |
 |-------------------------|--------------------------------------------|
 | **Cadastro de Salas**   | Registrar/editar salas (número, capacidade)|
-| **Registrar Emprestimo**| Registrar emprestimo de Salas e Livros    |
-| **Gerenciar Armários**  | Associar armários a salas (localização)   |
-| **Controle de Livros**  | Título, autor, status                    |
-| **Relacionamentos**     | Visualizar livros → armários → salas      |
-| **Busca Avançada**      | Filtros por múltiplos critérios           |
+| **Registrar Emprestimo**| Registrar emprestimo de Salas e Livros     |
+| **Gerenciar Armários**  | Associar armários a salas (localização)    |
+| **Controle de Livros**  | Título, autor, status                      |
+| **Relacionamentos**     | Visualizar livros → armários → salas       |
+| **Busca Avançada**      | Filtros por múltiplos critérios            |
 
 ### 2.2 Arquitetura do Projeto
 
