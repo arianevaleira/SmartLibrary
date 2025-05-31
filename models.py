@@ -3,13 +3,13 @@ from typing import List
 from datetime import date
 
 class Usuario(BaseModel):
-    id: int
+    uuid: int
     matricula: int
     senha: str
     tipo: str 
 
 class Livro(BaseModel):
-    id: int 
+    uuid: int 
     titulo: str 
     ano: int 
     autor: str
@@ -17,16 +17,16 @@ class Livro(BaseModel):
 
 
 class Armario(BaseModel):
-    id: int
+    uuid: int
     numero: int
 
 class Sala(BaseModel):
-    id: int
+    uuid: int
     numero: str
     capacidade: int
 
 class Emprestimo(BaseModel):
-    id: int
+    uuid: int
     usuario: Usuario
     livro: Livro
     armario: Armario

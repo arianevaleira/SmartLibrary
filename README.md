@@ -41,15 +41,10 @@ Automatizar o controle de espaços físicos e recursos literários da biblioteca
 
 ```
 biblioteca/
-├── 📁 core/
-│   ├── models.py       # Modelos de banco de dados
-│   ├── schemas.py      # Schemas Pydantic
-│   └── crud.py        # Operações de banco
-├── 📁 api/
-│   ├── endpoints/      # Rotas da API
-│   └── dependencies.py # Injeções
+├── README.md           # Documentação do projeto
+├── models.py           # Class 
 ├── main.py             # App FastAPI
-└── requirements.txt    # Tem que definir tudo ainda (aqui é so modelo)
+└── requirements.txt    # Tudo que precisa para rodar o projeto
  ```
 ---
 
@@ -63,11 +58,10 @@ biblioteca/
 ### Etapa 2: API Básica (Colocar)
 - Iniciar desenvolvimento 
 - Definir os principais Endepoints 
-- Iniciar Implementação com o banco 
 
 
 ### Etapa 3: Sistema Teste (Colocar)
-- 
+- - Iniciar Implementação com o banco 
 - 
 
 ### Etapa 4: Implantação (Colocar)
@@ -80,7 +74,7 @@ biblioteca/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/biblioteca-api.git
+git clone https://github.com/arianevaleira/SmartLibrary.git
 ```
 
 2. Configure o ambiente:
@@ -98,6 +92,6 @@ git clone https://github.com/seu-usuario/biblioteca-api.git
 ---
 
 **Próximos Passos**:  
-    - [ ] Adicionar autenticação JWT  
-    - [ ] Implementar frontend React  
+    - [ ] Conectar com interface 
+    - [ ] Fazer a interface 
 ```
