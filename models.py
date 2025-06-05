@@ -1,34 +1,53 @@
 from pydantic import BaseModel 
-from typing import List 
+from typing import List, Optional
 from datetime import date
+from enum import Enum
+
+class TipoUsuario(str, Enum):
+    aluno = "aluno"
+    funcionario = "funcionario"
+    admin = "admin"
+
+class StatusLivro(str, Enum):
+    disponivel = "disponível"
+    emprestado = "emprestado"
+    reservado = "reservado"
 
 class Usuario(BaseModel):
-    uuid: int
-    matricula: int
+    uuid: Optional[str] = None
+    matricula: str
+    nome: str
     senha: str
-    tipo: str 
+    tipo: TipoUsuario
 
 class Livro(BaseModel):
-    uuid: int 
+    uuid: Optional[str] = None
     titulo: str 
     ano: int 
     autor: str
-    edicao: str 
-
+    edicao: str
+    status: StatusLivro = StatusLivro.DISPONIVEL
+    isbn: Optional[str] = None
 
 class Armario(BaseModel):
-    uuid: int
+    uuid: Optional[str] = None
     numero: int
-
-class Sala(BaseModel):
-    uuid: int
-    numero: str
     capacidade: int
 
-class Emprestimo(BaseModel):
-    uuid: int
-    usuario: Usuario
-    livro: Livro
-    armario: Armario
-    
 
+class Sala(BaseModel):
+    uuid: Optional[str] = None
+    numero: str
+    capacidade: int
+    descricao: Optional[str] = None
+
+
+class Emprestimo(BaseModel):
+    uuid: Optional[str] = None
+    usuario_uuid: str
+    livro_uuid: str
+    armario_uuid: Optional[str] = None
+    data_emprestimo: date
+    data_devolucao_prevista: date
+    data_devolucao: Optional[date] = None
+    status: str = "ativo"
