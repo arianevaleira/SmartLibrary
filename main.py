@@ -6,7 +6,7 @@ from models import Usuario, Livro, Armario, Sala, Emprestimo, TipoUsuario, Statu
 
 app = FastAPI()
 
-#Banco de Bincadeira
+#Banco de Briincadeira
 livros_db: List[Livro] = []
 usuarios_db: List[Usuario] = []
 armarios_db: List[Armario] = []
