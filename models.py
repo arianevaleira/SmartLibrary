@@ -26,7 +26,7 @@ class Livro(BaseModel):
     ano: int 
     autor: str
     edicao: str
-    status: StatusLivro = StatusLivro.DISPONIVEL
+    status: StatusLivro = StatusLivro.disponivel
     isbn: Optional[str] = None
 
 class Armario(BaseModel):
