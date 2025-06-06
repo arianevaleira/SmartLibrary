@@ -2,7 +2,6 @@
 Biblioteca Inteligente -  Projeto da matéria de POS
 # Documentação do Projeto: Sistema de Biblioteca
 
----
 
 ## 1. Visão Geral
 
@@ -40,7 +39,7 @@ Automatizar o controle de espaços físicos e recursos literários da biblioteca
 ### 2.2 Arquitetura do Projeto
 
 ```
-biblioteca/
+SmartLibrary/
 ├── README.md           # Documentação do projeto
 ├── models.py           # Class 
 ├── main.py             # App FastAPI
@@ -58,12 +57,12 @@ biblioteca/
 ### Etapa 2: API Básica (Colocar)
 - Iniciar desenvolvimento 
 - Definir os principais Endepoints 
-
+-
 
 ### Etapa 3: Sistema Teste (Colocar)
 - - Iniciar Implementação com o banco 
 - 
-
+- 
 ### Etapa 4: Implantação (Colocar)
 -
 -  
@@ -79,19 +78,19 @@ git clone https://github.com/arianevaleira/SmartLibrary.git
 
 2. Configure o ambiente:
 ```bash
-  python -m venv .venv && source .venv/bin/activate
   pip install -r requirements.txt
 ```
 3. Execute:
  ```bash
-  uvicorn main:app --reload
+  uvicorn main:app 
 ```
 
 > Acesse a API em: `http://localhost:8000/docs`  
 
 ---
 
-**Próximos Passos**:  
+**Próximos Passos**: 
+``` 
     - [ ] Conectar com interface 
     - [ ] Fazer a interface 
 ```
