@@ -54,16 +54,16 @@ SmartLibrary/
 - Definir Funcionalidades 
 - Entrega da Documentação  
 
-### Etapa 2: API Básica (Colocar)
+### Etapa 2: API Básica (27/05)
 - Iniciar desenvolvimento 
 - Definir os principais Endepoints 
--
+- Testes iniciais de integração
 
-### Etapa 3: Sistema Teste (Colocar)
+### Etapa 3: Sistema Teste (15/07)
 - Iniciar Implementação com o banco 
 - Testes funcionais e correção de bugs
 - 
-### Etapa 4: Implantação (Colocar)
+### Etapa 4: Implantação (22/07)
 - Treinamento inicial para equipe responsável
 - Testes finais em ambiente real
 
