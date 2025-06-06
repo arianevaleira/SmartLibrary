@@ -60,7 +60,7 @@ SmartLibrary/
 -
 
 ### Etapa 3: Sistema Teste (Colocar)
-- - Iniciar Implementação com o banco 
+- Iniciar Implementação com o banco 
 - 
 - 
 ### Etapa 4: Implantação (Colocar)
