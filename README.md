@@ -61,11 +61,11 @@ SmartLibrary/
 
 ### Etapa 3: Sistema Teste (Colocar)
 - Iniciar Implementação com o banco 
-- 
+- Testes funcionais e correção de bugs
 - 
 ### Etapa 4: Implantação (Colocar)
--
--  
+- Treinamento inicial para equipe responsável
+- Testes finais em ambiente real
 
 ---
 
