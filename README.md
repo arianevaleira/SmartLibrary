@@ -1,6 +1,9 @@
-# SmartLibrary
-Biblioteca Inteligente -  Projeto da matéria de POS
-# Documentação do Projeto: Sistema de Biblioteca
+# Documentação do Projeto: Sistema de Biblioteca SmartLibrary
+
+## Componentes:
+- Ariane Valéria 
+- Karyne Ohara 
+- Riversson Paulo
 
 
 ## 1. Visão Geral
@@ -9,16 +12,18 @@ Biblioteca Inteligente -  Projeto da matéria de POS
 - **Python** (Linguagem principal)
 - **FastAPI** (Framework para a API)
 - **Uvicorn** (Servidor ASGI)
-- **SQLite** (Banco de dados padrão)  
+- **SQLite** (Banco de dados padrão)
+- **API SUAP** (Para integração com o sistema acadêmico)  
 
 ### Descrição
-Sistema completo para gerenciamento de:  
-- Salas da biblioteca  
-- Armários e acervo físico  
-- Livros e Emprestimos 
+Sistema completo para gerenciamento da Biblioteca, com as seguintes funcionalidades:  
+- Controle de salas e espaços físicos  
+- Gerenciamento de armários
+- Empréstimos de livros.
+- Integração com o sistema acadêmico (SUAP)
 
 ### Objetivo
-Automatizar o controle de espaços físicos e recursos literários da biblioteca.  
+Automatizar e simplificar os processos da biblioteca, tornando o acesso aos recursos mais eficiente para alunos e funcionários. 
 
 
 ---
@@ -35,37 +40,48 @@ Automatizar o controle de espaços físicos e recursos literários da biblioteca
 | **Controle de Livros**  | Título, autor, status                      |
 | **Relacionamentos**     | Visualizar livros → armários → salas       |
 | **Busca Avançada**      | Filtros por múltiplos critérios            |
+| **Integração SUAP**     | Autenticação e dados acadêmicos            |
 
 ### 2.2 Arquitetura do Projeto
 
 ```
 SmartLibrary/
-├── README.md           # Documentação do projeto
-├── models.py           # Class 
-├── main.py             # App FastAPI
-└── requirements.txt    # Tudo que precisa para rodar o projeto
+├── README.md           # Documentação principal
+├── models.py           # Classes e modelos de dados
+├── main.py             # Aplicação FastAPI (implementado)
+├── suap_integration.py # Integração com SUAP (pendente)
+├── database.py         # Conexão com banco SQL (pendente)
+├── templates/          # Frontend (pendente)
+└── requirements.txt    # Dependências do projeto
  ```
 ---
 
 ## 3. Cronograma
 
 ### Etapa 1: Modelagem (20/05)
-- Definir Projeto   
-- Definir Funcionalidades 
-- Entrega da Documentação  
+- Definir escopo do projeto 
+- Modelar estrutura principal (livros, salas, armários) 
+- Criar documentação inicial
 
 ### Etapa 2: API Básica (27/05)
-- Iniciar desenvolvimento 
-- Definir os principais Endepoints 
+- Desenvolver endpoints principais
+- Implementar sistema de empréstimos 
+- Criar busca avançada
 - Testes iniciais de integração
 
-### Etapa 3: Sistema Teste (15/07)
-- Iniciar Implementação com o banco 
-- Testes funcionais e correção de bugs
-- 
-### Etapa 4: Implantação (22/07)
-- Treinamento inicial para equipe responsável
-- Testes finais em ambiente real
+### Etapa 3: Integrações (15/07)
+- Conectar com banco de dados SQLite 
+- Implementar API do SUAP para:
+   - Autenticação de usuários
+   - Verificação de matrículas
+   - Vinculação com dados acadêmicos
+- Testes de integração
+
+### Etapa 4:  Interface e Finalização (22/07)
+- Desenvolver interface web simples
+- Conectar frontend com a API
+- Testes finais e ajustes
+- Treinamento para equipe da biblioteca
 
 ---
 
@@ -91,6 +107,6 @@ git clone https://github.com/arianevaleira/SmartLibrary.git
 
 **Próximos Passos**: 
 ``` 
-    - [ ] Conectar com interface 
-    - [ ] Fazer a interface 
+    - [ ] Integrar o sistema no servidor 
+    - [ ] Deixar o sistema pronto para uso cotidiano
 ```
