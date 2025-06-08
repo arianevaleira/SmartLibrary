@@ -81,7 +81,7 @@ SmartLibrary/
 - Desenvolver interface web simples
 - Conectar frontend com a API
 - Testes finais e ajustes
-- Treinamento para equipe da biblioteca
+
 
 ---
 
