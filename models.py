@@ -34,13 +34,11 @@ class Armario(BaseModel):
     numero: int
     capacidade: int
 
-
 class Sala(BaseModel):
     uuid: Optional[str] = None
     numero: str
     capacidade: int
     descricao: Optional[str] = None
-
 
 class Emprestimo(BaseModel):
     uuid: Optional[str] = None
