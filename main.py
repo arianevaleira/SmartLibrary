@@ -11,7 +11,6 @@ app = FastAPI()
 DATABASE_URL = "biblioteca.db"
 SUAP_API_URL = "https://suap.ifrn.edu.br/api/v2"
 
-# Models
 class TipoUsuario(str, Enum):
     aluno = "aluno"
     funcionario = "funcionario"
