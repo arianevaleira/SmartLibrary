@@ -27,6 +27,7 @@ def mostrar_menu_principal():
     print("0. Sair")
     return input("Escolha uma opção: ")
 
+#mostrar_menu_principal()
 def gerenciar_usuarios():
     while True:
         print("\n--- Gerenciamento de Usuários ---")
@@ -51,6 +52,8 @@ def cadastrar_usuario():
     print("\n--- Cadastrar Novo Usuário ---")
     nome = input("Nome: ")
     email = input("Email: ")
+    matricula = input("Matrícula: ") 
+    senha = input("Senha: ")         
     print("Tipos disponíveis: aluno, professor, funcionario")
     tipo = input("Tipo: ")
     
@@ -58,6 +61,8 @@ def cadastrar_usuario():
         usuario = {
             "nome": nome,
             "email": email,
+            "matricula": matricula,  
+            "senha": senha,          
             "tipo": tipo,
             "uuid": str(uuid.uuid4())
         }
@@ -89,22 +94,35 @@ def listar_usuarios():
 
 def buscar_usuario():
     print("\n--- Buscar Usuário ---")
-    user_id = input("Digite o ID do usuário: ")
+    user_id = input("Digite o ID do usuário: ").strip()
+    
     try:
         response = requests.get(f"{UR}/usuarios/{user_id}")
+        
         if response.status_code == 200:
             usuario = response.json()
+            print("\n[Dados completos da API]", usuario)
             print("\nUsuário encontrado:")
-            print(f"ID: {usuario['uuid']}")
-            print(f"Nome: {usuario['nome']}")
-            print(f"Email: {usuario['email']}")
-            print(f"Tipo: {usuario['tipo']}")
+            print(f"ID: {usuario.get('uuid')}")
+            print(f"Nome: {usuario.get('nome')}")
+            email = usuario.get('email')
+            if email is not None:
+                print(f"Email: {email}")
+            else:
+                print("Email: Não cadastrado")
+            
+            print(f"Tipo: {usuario.get('tipo', 'Não especificado')}")
+            print(f"Matrícula: {usuario.get('matricula', 'Não cadastrada')}")
+            
         elif response.status_code == 404:
             print("Usuário não encontrado.")
         else:
-            print(f"Erro: {response.text}")
+            print(f"Erro na API (Status {response.status_code}): {response.text}")
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Erro de conexão: {str(e)}")
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Erro inesperado: {str(e)}")
 
 def gerenciar_livros():
     while True:
@@ -435,3 +453,5 @@ def main():
             break
         else:
             print("Opção inválida!")
+if __name__ == "__main__":
+    main()

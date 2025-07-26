@@ -76,6 +76,7 @@ def init_db():
             uuid TEXT PRIMARY KEY,
             matricula TEXT NOT NULL UNIQUE,
             nome TEXT NOT NULL,
+            email TEXT NOT NULL UNIQUE,
             senha TEXT NOT NULL,
             tipo TEXT NOT NULL
         )""")
@@ -125,7 +126,7 @@ def init_db():
 
 init_db()
 
-# SUAP Integration
+
 def get_suap_user_data(matricula: str, token: str):
     headers = {"Authorization": f"Bearer {token}"}
     
@@ -149,7 +150,7 @@ def get_suap_user_data(matricula: str, token: str):
     except requests.exceptions.RequestException as e:
         raise HTTPException(status_code=400, detail=f"Erro ao acessar SUAP: {str(e)}")
 
-# Endpoints
+
 @app.post("/usuarios/", response_model=Usuario)
 def criar_usuario(usuario: Usuario, db: sqlite3.Connection = Depends(get_db)):
     cursor = db.cursor()
