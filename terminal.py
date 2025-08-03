@@ -372,9 +372,123 @@ def devolver_livro():
     try:
         response = requests.put(f"{UR}/emprestimos/{emp_id}/devolver")
         if response.status_code == 200:
-            print(response.json()["message"])
+            print("Livro devolvido com sucesso")
         else:
             print(f"Erro ao devolver livro: {response.text}")
+    except Exception as e:
+        print(f"Erro: {e}")
+
+
+def gerenciar_armarios():
+    while True:
+        print("\n--- Gerenciamento de Armários ---")
+        print("1. Cadastrar novo armário")
+        print("2. Listar todos os armários")
+        print("3. Buscar armário por ID")
+        print("0. Voltar")
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            cadastrar_armario()
+        elif opcao == "2":
+            listar_armarios()
+        elif opcao == "3":
+            buscar_armario()
+        elif opcao == "0":
+            break
+        else:
+            print("Opção inválida!")
+
+def cadastrar_armario():
+    print("\n--- Cadastrar Novo Armário ---")
+    numero = input("Número: ")
+    capacidade = input("Capacidade: ")
+    
+    try:
+        armario = {
+            "numero": numero,
+            "capacidade": capacidade,
+            "uuid": str(uuid.uuid4())
+        }
+        response = requests.post(f"{UR}/armarios/", json=armario)
+        if response.status_code == 200:
+            print("Armário cadastrado com sucesso!")
+            print(response.json())
+        else:
+            print(f"Erro ao cadastrar armário: {response.text}")
+    except Exception as e:
+        print(f"Erro: {e}")
+
+def listar_armarios():
+    print("\n--- Lista de Armários ---")
+    try:
+        response = requests.get(f"{UR}/armarios/")
+        if response.status_code == 200:
+            armarios = response.json()
+            for armario in armarios:
+                print(f"ID: {armario['uuid']}")
+                print(f"Número: {armario['numero']}")
+                print(f"Capacidade: {armario['capacidade']}")
+                print("-" * 30)
+        else:
+            print(f"Erro ao listar armários: {response.text}")
+    except Exception as e:
+        print(f"Erro: {e}")
+
+
+def gerenciar_salas():
+    while True:
+        print("\n--- Gerenciamento de Salas ---")
+        print("1. Cadastrar nova sala")
+        print("2. Listar todas as salas")
+        print("0. Voltar")
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            cadastrar_sala()
+        elif opcao == "2":
+            listar_salas()
+        elif opcao == "0":
+            break
+        else:
+            print("Opção inválida!")
+
+def cadastrar_sala():
+    print("\n--- Cadastrar Nova Sala ---")
+    numero = input("Número: ")
+    capacidade = input("Capacidade: ")
+    descricao = input("Descrição: ")
+    
+    try:
+        sala = {
+            "numero": numero,
+            "capacidade": capacidade,
+            "descricao": descricao,
+            "uuid": str(uuid.uuid4())
+        }
+        response = requests.post(f"{UR}/salas/", json=sala)
+        if response.status_code == 200:
+            print("Sala cadastrada com sucesso!")
+            print(response.json())
+        else:
+            print(f"Erro ao cadastrar sala: {response.text}")
+    except Exception as e:
+        print(f"Erro: {e}")
+
+def listar_salas():
+    print("\n--- Lista de Armários ---")
+    try:
+        response = requests.get(f"{UR}/salas/")
+        if response.status_code == 200:
+            salas = response.json()
+            for sala in salas:
+                print(f"ID: {sala['uuid']}")
+                print(f"Número: {sala['numero']}")
+                print(f"Capacidade: {sala['capacidade']}")
+                print(f"Descrição: {sala['descricao']}")
+                print("-" * 30)
+        else:
+            print(f"Erro ao listar salas: {response.text}")
     except Exception as e:
         print(f"Erro: {e}")
 
@@ -441,9 +555,9 @@ def main():
         elif opcao == "2":
             gerenciar_livros()
         elif opcao == "3":
-            print("Funcionalidade de armários ainda não implementada")
+            gerenciar_armarios()
         elif opcao == "4":
-            print("Funcionalidade de salas ainda não implementada")
+            gerenciar_salas()
         elif opcao == "5":
             gerenciar_emprestimos()
         elif opcao == "6":

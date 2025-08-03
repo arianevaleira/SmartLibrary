@@ -351,6 +351,16 @@ def listar_emprestimos(db: sqlite3.Connection = Depends(get_db)):
     cursor.execute("SELECT * FROM emprestimos")
     return [Emprestimo(**dict(row)) for row in cursor.fetchall()]
 
+
+@app.get("/emprestimos/{uuid}", response_model=Emprestimo)
+def obter_emprestimo(uuid: str, db: sqlite3.Connection = Depends(get_db)):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM emprestimos WHERE uuid = ?", (uuid,))
+    emprestimo = cursor.fetchone()
+    if not emprestimo:
+        raise HTTPException(status_code=404, detail="Empréstimo não encontrado")
+    return Emprestimo(**dict(emprestimo))
+
 @app.get("/livros/{uuid}/localizacao")
 def localizar_livro(uuid: str, db: sqlite3.Connection = Depends(get_db)):
     cursor = db.cursor()
