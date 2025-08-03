@@ -161,9 +161,9 @@ def cadastrar_livro():
         livro = {
             "titulo": titulo,
             "autor": autor,
-            "ano_publicacao": ano_publicacao,
-            "editora": editora,
-            "status": "disponivel",
+            "ano": int(ano_publicacao),
+            "edicao": editora,
+            "status": "disponível",
             "uuid": str(uuid.uuid4())
         }
         response = requests.post(f"{UR}/livros/", json=livro)
@@ -203,8 +203,8 @@ def buscar_livro():
             print(f"ID: {livro['uuid']}")
             print(f"Título: {livro['titulo']}")
             print(f"Autor: {livro['autor']}")
-            print(f"Ano: {livro['ano_publicacao']}")
-            print(f"Editora: {livro['editora']}")
+            print(f"Ano: {livro['ano']}")
+            print(f"Editora: {livro['edicao']}")
             print(f"Status: {livro['status']}")
         elif response.status_code == 404:
             print("Livro não encontrado.")
@@ -227,21 +227,21 @@ def atualizar_livro():
         print("\nDados atuais do livro:")
         print(f"Título: {livro['titulo']}")
         print(f"Autor: {livro['autor']}")
-        print(f"Ano: {livro['ano_publicacao']}")
-        print(f"Editora: {livro['editora']}")
+        print(f"Ano: {livro['ano']}")
+        print(f"Editora: {livro['edicao']}")
         print(f"Status: {livro['status']}")
         
         print("\nDigite os novos dados (deixe em branco para manter o valor atual):")
         titulo = input(f"Título [{livro['titulo']}]: ") or livro['titulo']
         autor = input(f"Autor [{livro['autor']}]: ") or livro['autor']
-        ano_publicacao = input(f"Ano [{livro['ano_publicacao']}]: ") or livro['ano_publicacao']
-        editora = input(f"Editora [{livro['editora']}]: ") or livro['editora']
+        ano_publicacao = input(f"Ano [{livro['ano']}]: ") or livro['ano']
+        editora = input(f"Editora [{livro['edicao']}]: ") or livro['edicao']
         
         livro_atualizado = {
             "titulo": titulo,
             "autor": autor,
-            "ano_publicacao": ano_publicacao,
-            "editora": editora,
+            "ano": ano_publicacao,
+            "edicao": editora,
             "status": livro['status'],
             "uuid": livro_id
         }

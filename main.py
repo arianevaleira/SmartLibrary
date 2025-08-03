@@ -25,6 +25,7 @@ class Usuario(BaseModel):
     uuid: Optional[str] = None
     matricula: str
     nome: str
+    email: str
     senha: str
     tipo: TipoUsuario
 
@@ -157,8 +158,8 @@ def criar_usuario(usuario: Usuario, db: sqlite3.Connection = Depends(get_db)):
     usuario.uuid = str(uuid.uuid4())
     
     cursor.execute(
-        "INSERT INTO usuarios VALUES (?, ?, ?, ?, ?)",
-        (usuario.uuid, usuario.matricula, usuario.nome, usuario.senha, usuario.tipo.value)
+        "INSERT INTO usuarios VALUES (?, ?, ?, ?, ?, ?)",
+        (usuario.uuid, usuario.matricula, usuario.nome, usuario.email, usuario.senha, usuario.tipo.value)
     )
     db.commit()
     return usuario

@@ -17,6 +17,7 @@ class Usuario(BaseModel):
     uuid: Optional[str] = None
     matricula: str
     nome: str
+    email: str
     senha:str
     email: str 
     tipo: TipoUsuario
